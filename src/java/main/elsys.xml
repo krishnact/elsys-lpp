@@ -1,0 +1,123 @@
+<msgs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/krishnact/binmsg/master/msgs.xsd"
+	packageName="org.himalay.elsys">
+
+	<msg package="org.himalay.elsys" type="LPPHeader">
+		<bitField name="b1" size="1">
+			<bits mask="11000000" name="nob" />
+			<bits mask="00111111" name="messageType" />
+		</bitField>
+	</msg>
+	<msg type="_Temperature" package="org.himalay.elsys" concrete="Temperature"
+		predicate="0x01" header="header" base="ElsysData">
+		<complex name="header" type="LPPHeader" />
+		<i16 name="_value"></i16>
+		<byteArray name="time" length="$header.nob" />
+	</msg>
+	<msg type="_Humidity" package="org.himalay.elsys" concrete="Humidity"
+		predicate="0x02" header="header" base="ElsysData">
+		<complex name="header" type="LPPHeader"></complex>
+		<ui8 name="_value"></ui8>
+		<byteArray name="time" length="$header.nob" />
+	</msg>
+	<msg type="_Acceleration" package="org.himalay.elsys" concrete="Acceleration"
+		predicate="0x03" header="header" base="ElsysData">
+		<complex name="header" type="LPPHeader"></complex>
+		<i8 name="x"></i8>
+		<i8 name="y"></i8>
+		<i8 name="z"></i8>
+		<byteArray name="time" length="$header.nob" />
+	</msg>
+	<msg type="_Light" package="org.himalay.elsys" concrete="Light"
+		predicate="0x04" header="header" base="ElsysData">
+		<complex name="header" type="LPPHeader"></complex>
+		<ui16 name="_value"></ui16>
+		<byteArray name="time" length="$header.nob" />
+	</msg>
+	<msg type="_MotionPIR" package="org.himalay.elsys" concrete="MotionPIR"
+		predicate="0x05" header="header" base="ElsysData">
+		<complex name="header" type="LPPHeader"></complex>
+		<ui8 name="_value"></ui8>
+		<byteArray name="time" length="$header.nob" />
+	</msg>
+	<msg type="_CO2" package="org.himalay.elsys" concrete="CO2"
+		predicate="0x06" header="header" base="ElsysData">
+		<complex name="header" type="LPPHeader"></complex>
+		<ui16 name="value"></ui16>
+		<byteArray name="time" length="$header.nob" />
+	</msg>
+	<msg type="_Battery" package="org.himalay.elsys" concrete="Battery"
+		predicate="0x07" header="header" base="ElsysData">
+		<complex name="header" type="LPPHeader"></complex>
+		<ui16 name="value"></ui16>
+		<byteArray name="time" length="$header.nob" />
+	</msg>
+	<msg type="_Analog1" package="org.himalay.elsys" concrete="Analog1"
+		predicate="0x08" header="header" base="ElsysData">
+		<complex name="header" type="LPPHeader"></complex>
+		<ui16 name="value"></ui16>
+		<byteArray name="time" length="$header.nob" />
+	</msg>
+	<msg type="_GPS" package="org.himalay.elsys" concrete="GPS"
+		predicate="0x09" header="header" base="ElsysData">
+		<complex name="header" type="LPPHeader"></complex>
+		<ui24 name="lon"></ui24>
+		<ui24 name="lat"></ui24>
+		<byteArray name="time" length="$header.nob" />
+	</msg>
+	<msg type="_PulseCount" package="org.himalay.elsys" concrete="PulseCount"
+		predicate="0x0a" header="header" base="ElsysData">
+		<complex name="header" type="LPPHeader"></complex>
+		<ui16 name="value"></ui16>
+		<byteArray name="time" length="$header.nob" />
+	</msg>
+	<msg type="_PulseCountABS" package="org.himalay.elsys" concrete="PulseCountABS"
+		predicate="0x0b" header="header" base="ElsysData">
+		<complex name="header" type="LPPHeader"></complex>
+		<ui32 name="value"></ui32>
+		<byteArray name="time" length="$header.nob" />
+	</msg>
+	<msg type="_ExternalTemp1" package="org.himalay.elsys" concrete="ExternalTemp1"
+		predicate="0x0c" header="header" base="ElsysData">
+		<complex name="header" type="LPPHeader"></complex>
+		<i16 name="_value"></i16>
+		<byteArray name="time" length="$header.nob" />
+	</msg>
+	<msg type="_ExternalDigital" package="org.himalay.elsys" concrete="ExternalDigital"
+		predicate="0x0d" header="header" base="ElsysData">
+		<complex name="header" type="LPPHeader"></complex>
+		<ui8 name="value"></ui8>
+		<byteArray name="time" length="$header.nob" />
+	</msg>
+	<msg type="_ExternalDistance" package="org.himalay.elsys" concrete="ExternalDistance"
+		predicate="0x0e" header="header" base="ElsysData">
+		<complex name="header" type="LPPHeader"></complex>
+		<ui16 name="value"></ui16>
+		<byteArray name="time" length="$header.nob" />
+	</msg>
+	<msg type="_MotionAccleration" package="org.himalay.elsys"
+		concrete="MotionAccleration" predicate="0x0f" header="header" base="ElsysData">
+		<complex name="header" type="LPPHeader"></complex>
+		<ui8 name="value"></ui8>
+		<byteArray name="time" length="$header.nob" />
+	</msg>
+	<msg type="_ExternalIRTemp" package="org.himalay.elsys" concrete="ExternalIRTemp"
+		predicate="0x10" header="header" base="ElsysData">
+		<complex name="header" type="LPPHeader"></complex>
+		<i16 name="_value1"></i16>
+		<i16 name="_value2"></i16>
+		<byteArray name="time" length="$header.nob" />
+	</msg>
+	<msg type="_Occupancy" package="org.himalay.elsys" concrete="Occupancy"
+		predicate="0x11" header="header" base="ElsysData">
+		<complex name="header" type="LPPHeader"></complex>
+		<ui8 name="value"></ui8>
+		<byteArray name="time" length="$header.nob" />
+	</msg>
+	<msg type="_ExternalWaterLeak" package="org.himalay.elsys"
+		concrete="ExternalWaterLeak" predicate="0x12" header="header" base="ElsysData">
+		<complex name="header" type="LPPHeader"></complex>
+		<ui8 name="value"></ui8>
+		<byteArray name="time" length="$header.nob" />
+	</msg>
+</msgs>
